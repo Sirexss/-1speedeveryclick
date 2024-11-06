@@ -1,0 +1,78 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Every click +1 speed                           Script by Sirex", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "Sirex 1+"})
+
+-- values
+
+_G.autoclick = true 
+_G.autoreb = true
+_G.autospin = true
+
+
+-- functions
+
+function autoclick()
+	while _G.autoclick == true do
+		game:GetService("ReplicatedStorage").IncreaseSpeed:FireServer()
+		wait(.0000000000000000000000000000000000000000001)
+	end
+end
+
+function autoreb()
+	while _G.autoreb == true do
+		game:GetService("ReplicatedStorage").RebirthEvent:FireServer()
+		wait(5)
+	end
+end
+
+function autospin()
+	while _G.autospin == true do
+		game:GetService("ReplicatedStorage").SpinFolder.Spin:FireServer()
+		wait(2)
+	end
+end
+
+
+-- tabs
+
+
+local AutoTab = Window:MakeTab({
+	Name = "AutoFarm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+-- buttons
+
+-- toggles
+
+AutoTab:AddToggle({
+	Name = "AutoClick",
+	Default = false,
+	Callback = function(Value)
+		_G.autoclick = Value
+		autoclick()
+	end    
+})
+
+AutoTab:AddToggle({
+	Name = "AutoRebirth",
+	Default = false,
+	Callback = function(Value)
+		_G.autoreb = Value
+		autoreb()
+	end    
+})
+
+
+AutoTab:AddToggle({
+	Name = "AutoSpin",
+	Default = false,
+	Callback = function(Value)
+		_G.autospin = Value
+		autospin()
+	end    
+})
+
+-- Sliders
