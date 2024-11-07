@@ -28,7 +28,7 @@ end
 function autospin()
 	while _G.autospin == true do
 		game:GetService("ReplicatedStorage").SpinFolder.Spin:FireServer()
-		wait(2)
+		wait(30)
 	end
 end
 
